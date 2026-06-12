@@ -1,8 +1,10 @@
+//## 📄 License
+
+//MIT
 import { Injectable, inject } from '@angular/core';
 import { FinanceStore } from '../../store/finance.store';
 import { AiInsight } from '../models/insight.model';
 import axios from 'axios';
-import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AiService {

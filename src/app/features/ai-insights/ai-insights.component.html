@@ -1,0 +1,43 @@
+<div class="ai-insights">
+  <h1 class="page-title">AI Insights</h1>
+  <p class="subtitle">Ask anything about your finances</p>
+
+  <div class="suggestions">
+    @for (s of suggestions; track s) {
+      <button class="suggestion-chip" (click)="useSuggestion(s)">
+        {{ s }}
+      </button>
+    }
+  </div>
+
+  <div class="input-area">
+    <input
+      type="text"
+      [ngModel]="question()"
+      (ngModelChange)="question.set($event)"
+      (keyup.enter)="ask()"
+      placeholder="Ask about your finances..."
+      class="question-input"
+    />
+    <button class="ask-btn" (click)="ask()">Ask AI ✨</button>
+  </div>
+
+  <div class="insights-list">
+    @for (insight of store.insights(); track insight.id) {
+      <div class="insight-card">
+        <div class="question">
+          <span class="q-icon">🙋</span>
+          <span>{{ insight.question }}</span>
+        </div>
+        <div class="answer">
+          <span class="a-icon">🤖</span>
+          @if (insight.loading) {
+            <span class="loading">Thinking...</span>
+          } @else {
+            <span>{{ insight.answer }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="budget">
+  <h1 class="page-title">Budget Tracker</h1>
+
+  <div class="budget-grid">
+    @for (budget of store.budgets(); track budget.category) {
+      <div class="budget-card">
+        <div class="budget-header">
+          <span class="category">{{ budget.category }}</span>
+          <span
+            class="percentage"
+            [style.color]="getBarColor(budget.percentage)"
+          >
+            {{ budget.percentage }}%
+          </span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            [style.width.%]="budget.percentage"
+            [style.background]="getBarColor(budget.percentage)"
+          ></div>
+        </div>
+
+        <div class="budget-footer">
+          <span class="spent">{{ budget.spent | currency }} spent</span>
+          <span class="limit">of {{ budget.limit | currency }}</span>
+        </div>
+
+        <div class="remaining" [style.color]="getBarColor(budget.percentage)">
+          {{ budget.remaining | currency }} remaining
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,133 @@
+.ai-insights {
+  max-width: 800px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1d23;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #9ca3af;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  .suggestion-chip {
+    padding: 8px 16px;
+    background: #ede9fe;
+    color: #6366f1;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #6366f1;
+      color: white;
+    }
+  }
+}
+
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+
+  .question-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #6366f1;
+    }
+  }
+
+  .ask-btn {
+    padding: 14px 24px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    &:hover {
+      background: #4f46e5;
+    }
+  }
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  .question {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1d23;
+
+    .q-icon {
+      font-size: 20px;
+    }
+  }
+
+  .answer {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+    padding-left: 4px;
+
+    .a-icon {
+      font-size: 20px;
+    }
+
+    .loading {
+      color: #9ca3af;
+      font-style: italic;
+      animation: pulse 1.5s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}

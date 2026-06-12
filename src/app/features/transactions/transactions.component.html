@@ -1,0 +1,62 @@
+<div class="transactions">
+  <h1 class="page-title">Transactions</h1>
+
+  <div class="filters">
+    <button [class.active]="filterType() === 'all'" (click)="setFilter('all')">
+      All
+    </button>
+    <button
+      [class.active]="filterType() === 'income'"
+      (click)="setFilter('income')"
+    >
+      Income
+    </button>
+    <button
+      [class.active]="filterType() === 'expense'"
+      (click)="setFilter('expense')"
+    >
+      Expenses
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (tx of filteredTransactions(); track tx.id) {
+          <tr>
+            <td>{{ tx.title }}</td>
+            <td>
+              <span class="badge">{{ tx.category }}</span>
+            </td>
+            <td>{{ tx.date }}</td>
+            <td>
+              <span
+                class="type-badge"
+                [class.income]="tx.type === 'income'"
+                [class.expense]="tx.type === 'expense'"
+              >
+                {{ tx.type }}
+              </span>
+            </td>
+            <td
+              class="amount"
+              [class.income]="tx.type === 'income'"
+              [class.expense]="tx.type === 'expense'"
+            >
+              {{ tx.type === "income" ? "+" : "-" }}{{ tx.amount | currency }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -30,7 +30,7 @@
               [class.income]="tx.type === 'income'"
               [class.expense]="tx.type === 'expense'"
             >
-              {{ tx.type === "income" ? "+" : "-" }}{{ tx.amount | currency }}
+              {{ tx.type === 'income' ? '+' : '-' }}{{ tx.amount | currency }}
             </span>
           </div>
         }
@@ -38,15 +38,7 @@
     </div>
 
     <div class="section">
-      <h2 class="section-title">Spending by Category</h2>
-      <div class="category-list">
-        @for (entry of store.expensesByCategory() | keyvalue; track entry.key) {
-          <div class="category-item">
-            <span class="category-name">{{ entry.key }}</span>
-            <span class="category-amount">{{ entry.value | currency }}</span>
-          </div>
-        }
-      </div>
+      <app-spending-chart />
     </div>
   </div>
 </div>
